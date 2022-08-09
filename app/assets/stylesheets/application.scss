@@ -22,19 +22,40 @@ body {
     background-color: rgb(243, 230, 225);
 }
 
+/* Add a black background color to the top navigation */
+.topnav {
+    background-color: rgb(5, 189, 189);
+    overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+    float: right;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+/* Hide the link that should open and close the topnav on small screens */
+.topnav .icon {
+    display: none;
+}
+
+
 .jumbotron {
     background-image: url('teal.jpg');
     background-size: cover;
     width: 100%;
     border-style: double;
-}
-
-.nav {
-    font-size: 1.5rem;
-    padding: 1px;
-    background-color: teal;
-    color: white;
-    text-align: right;
 }
 
 .container {
@@ -65,5 +86,9 @@ h1 {
 
 .btn {
     color: black;
+}
+
+.btn-primary {
+    color: rgb(5, 189, 189);
 }
 
