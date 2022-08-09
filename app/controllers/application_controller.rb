@@ -23,4 +23,8 @@ helper_method :logged_in?
     def logout
         redirect_to '/users'
     end
+
+    def current_page?
+        render partial: "navbar"
+    end
 end
