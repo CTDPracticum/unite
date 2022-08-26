@@ -3,6 +3,7 @@ Rails.application.routes.draw do
    get 'login', to: 'sessions#new'
    post 'login', to: 'sessions#create'
    get 'welcome', to: 'sessions#welcome'
+   get 'about', to: 'sessions#about'
    get 'authorized', to: 'sessions#page_requires_login'
    get "logout", to: 'sessions#destroy', as: :logout
 
