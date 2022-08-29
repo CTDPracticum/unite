@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   has_secure_password
-  has_many :groups
+  has_many :groups, through: :memberships
   has_many :meetups, through: :groups
   has_many :memberships
   

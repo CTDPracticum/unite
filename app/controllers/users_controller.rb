@@ -24,24 +24,29 @@ class UsersController < ApplicationController
   # POST /users or /users.json
   def create
    @user = User.new(user_params)
-    if @user.save
-      session[:user_id] = @user.id
-      redirect_to @user
-   else
-      flash.now.alert = @user.errors.full_messages.to_sentence
-      render :new
+   membership
+    respond_to do |f|
+      if @user.save
+        format.html {redirect_to @user, notice: "User was successfully created."}
+        format.json {render :show, status: :created, location: @user}
+      else
+        format.html {render :new, status: :unprocessable_entity}
+        format.json {render json: @user.errors, status: :unprocessable_entity}
+      end
     end
   end
-
   # PATCH/PUT /users/1 or /users/1.json
   def update
-      if @user.update(user_params)
-        flash.notice = "The user record was updated successfully."
-        redirect_to users_path
-      else
-        flash.now.alert = @user.errors.full_messages.to_sentence
-        render :edit
-      end
+    respond_to do |f|
+      membership
+        if @user.update(user_params)
+          format.html {redirect_to @user, notice: "The user record was updated successfully."}
+          format.json {render json: @user.errors, status: :unprocessable_entity}
+        else
+          format.html {render :edit, status: :unprocessable_entity}
+          format.json {render json: @user.errors, status: :unprocessable_entity}
+        end
+    end
   end
 
   # DELETE /users/1 or /users/1.json
@@ -59,9 +64,15 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
     end
 
+    def membership
+      if @user.id.present?
+        @membership = Membership.create(user_id: @user.id)
+      end
+    end
+
     # Only allow a list of trusted parameters through.
     def user_params
-      params.require(:user).permit(:name, :email, :password, :password_confirmation, :bio)
+      params.require(:user).permit(:name, :email, :password, :password_confirmation, :group, :bio)
     end
 
     def catch_not_found(e)
