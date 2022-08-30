@@ -39,4 +39,5 @@ ActiveRecord::Schema.define(version: 2022_08_11_220227) do
     t.integer "group_id"
     t.text "bio"
   end
+
 end
