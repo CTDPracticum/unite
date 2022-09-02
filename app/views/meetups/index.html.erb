@@ -21,16 +21,17 @@
             <td><%= meetup.group.title %></td>
             <td><%= meetup.date %></td>
             <td><%= meetup.time %></td>
-            <td><%= link_to 'Show', meetup %></td>
-            <td><%= link_to 'Edit', edit_meetup_path(meetup) %></td>
-            <td><%= link_to 'Destroy', meetup, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td> <%= link_to 'Show', meetup, class:"btn-show" %> </td>
+            <td><div> <%= link_to ' Edit ', edit_meetup_path(meetup), class:"btn-edit" %> </div></td>
+            <td><div> <%= link_to 'Destroy', meetup, method: :delete, class:"btn-delete", data: { confirm: 'Are you sure?' } %> </div></td>
           </tr>
         <% end %>
       </tbody>
     </table>
-
-  <br>
+     
+<br>
+  
   <div class="row justify-content-center">
-    <%= link_to 'New Meetup', new_meetup_path, class: "btn-primar" %>
+    <%= link_to 'New Meetup', new_meetup_path, class: "btn-primar btn-space" %>
   </div>
 </div>

@@ -1,5 +1,4 @@
-<%
-=begin%>
+
  <%= form_with(model: user) do |form| %>
   <% if user.errors.any? %>
     <div id="error_explanation">
@@ -34,8 +33,7 @@
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit " Update ", class:"btn-primar" %>
   </div>
 <% end %>  
-<%
-=end%>
+

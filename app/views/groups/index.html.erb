@@ -17,9 +17,9 @@
           <tr>
             <td><%= group.title %></td>
             <td><%= group.location %></td>
-            <td><%= link_to 'Show', group %></td>
-            <td><%= link_to 'Edit', edit_group_path(group) %></td>
-            <td><%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= link_to 'Show', group, class: "btn-show" %></td>
+            <td><%= link_to 'Edit', edit_group_path(group), class: "btn-edit" %></td>
+            <td><%= link_to 'Destroy', group, class:"btn-delete", method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
         <% end %>
       </tbody>
@@ -28,6 +28,6 @@
     <br>
 
   <div class="row justify-content-center">
-    <%= link_to 'New Group', new_group_path, class: "btn btn-primary" %>
+    <%= link_to 'New Group', new_group_path, class: "btn-primar" %>
   </div>
 </div>
