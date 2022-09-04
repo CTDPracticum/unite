@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   has_secure_password
   has_many :groups
-  has_many :meetups, through: :groups
+  has_many :meetups
   has_many :memberships
   
   validates :name, presence: true
