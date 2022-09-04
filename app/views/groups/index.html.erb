@@ -3,29 +3,17 @@
 <div class="container mb-4">
   <h1 class="text-center font-weight-bold my-4">Groups</h1>
 
-    <table class="table table-striped mx-auto align-center">
-      <thead>
-        <tr>
-          <th>Title</th>
-          <th>Location</th>
-          <th colspan="3"></th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <% @groups.each do |group| %>
-          <tr>
-            <td><%= group.title %></td>
-            <td><%= group.location %></td>
-            <td><%= link_to 'Show', group %></td>
-            <td><%= link_to 'Edit', edit_group_path(group) %></td>
-            <td><%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-
-    <br>
+    <% @groups.each do |group| %>
+      <div class="card" style="width: 18rem; border: thin black solid; padding: 10px;">
+        <div class="card-body">
+          <h5 class="card-title text-uppercase font-weight-bold"><%= group.title %></h5>
+          <h6 class="card-subtitle mb-2 text-muted"><%= group.location %></h6>
+          <%= link_to 'Show', group %> | <%= link_to 'Edit', edit_group_path(group) %> | <%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </div>
+      </div>
+      <br>
+    <% end %>
+  <br>
 
   <div class="row justify-content-center">
     <%= link_to 'New Group', new_group_path, class: "btn btn-primary" %>
