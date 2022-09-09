@@ -122,8 +122,6 @@ GEM
     forwardable-extended (2.6.0)
     globalid (1.0.0)
       activesupport (>= 5.0)
-    graphicsmagick (1.0.6)
-      subexec
     gravatar_image_tag (1.2.0)
     http_parser.rb (0.8.0)
     i18n (1.12.0)
@@ -288,8 +286,8 @@ GEM
       actionpack (>= 5.2)
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
-    sqlite3 (1.4.4)
-    subexec (0.2.3)
+    sqlite3 (1.5.0-x86_64-darwin)
+    sqlite3 (1.5.0-x86_64-linux)
     terminal-table (2.0.0)
       unicode-display_width (~> 1.1, >= 1.1.1)
     thor (1.2.1)
@@ -342,7 +340,6 @@ DEPENDENCIES
   devise-jwt
   factory_bot_rails
   faker
-  graphicsmagick (~> 1.0, >= 1.0.6)
   gravatar_image_tag (~> 1.2)
   image_processing (~> 1.2)
   imagemagick-identify
