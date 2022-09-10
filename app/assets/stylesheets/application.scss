@@ -40,8 +40,8 @@ body {
 }
 
 /* Change the color of links on hover */
-.topnav a:hover {
-    background-color: #ddd;
+.topnav,
+.navbar a:hover {
     color: black;
 }
 
@@ -68,6 +68,16 @@ body {
     position: absolute;
     background-color: teal;
     color: white;
+}
+
+.footer a {
+    float: right;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 14px;
 }
 
 @font-face {
