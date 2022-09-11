@@ -1,5 +1,5 @@
 <!-- navbar -->
-<% if logged_in? %>
+<% if current_user.persisted? %>
     <nav class="topnav navbar-expand-lg bg-warning mt-0 p-0 border">
         <%= link_to 'Log Out', logout_path %>
         <%= link_to 'Meetups', meetups_url %>
