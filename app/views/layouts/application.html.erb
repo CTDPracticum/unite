@@ -1,50 +1,37 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Rails Final Project</title>
+    <title>Unite</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">  
   </head>
 
   <body>
-
-    <header>
-
-        <!-- jumbotron -->
-        <div class="jumbotron jumbotron-fluid bg-warning text-white my-0 barcad text-center">
-          <div class="container text-sm-center">
-            <h1 class="display-1 lead text-center">Unite: Where Entreprenuers Find Business Partners</h1>
-          </div>
-        </div>
-
-          <% if !flash[:alert].nil? %>
-            <p class="my_alert"><%= flash[:alert] %></p>
+      <header>
+          <% if current_page? %>
+            <%= render partial: "shared/navbar" %>
           <% end %>
-          
-        <!-- navbar -->
-          <ul class="nav justify-content-end">
-            <li class="nav-item">
-              <a class="nav-link" href="#">Groups</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Meetups</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Logout</a>
-            </li>
-          </ul>
-
+            
+          <!-- jumbotron -->
+            <div class="jumbotron jumbotron-fluid bg-warning text-white my-0 barcad text-center">
+              <div class="container text-sm-center">
+                <h1 class="display-1 lead text-center">Unite: Where Entreprenuers Find Business Partners</h1>
+              </div>
+            </div>
+          <!--jumbotron -->
       </header>
 
         <%= yield %>
-
-      <footer class="footer bg-warning border-top border-dark pt-2 mb-0">
-        <p>&copy; 2022 </p>
-      </footer>
+        <!-- footer -->
+          <footer class="footer bg-warning border-top border-dark pt-2 mb-0">
+            <p>&copy; 2022 Unite || CTD Final </p>
+          </footer>
+        <!-- footer -->
   </body>
 </html>
