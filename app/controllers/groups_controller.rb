@@ -42,6 +42,21 @@ class GroupsController < ApplicationController
       render :edit
     end
   end
+  
+  # GET /groups or /groups.json
+  def join
+    @group = Group.find(params[:id])
+    @membership = @group.memberships.build(:user_id => current_user.id)
+    respond_to do |format|
+      if @membership.save
+        format.html { redirect_to(@group, :notice => 'You have joined this group.') }
+        format.xml  { head :ok }
+      else
+        format.html { redirect_to(@group, :notice => 'Join error.') }
+        format.xml  { render :xml => @group.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
 
   # DELETE /groups/1 or /groups/1.json
   def destroy
@@ -60,7 +75,7 @@ class GroupsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def group_params
-      params.require(:group).permit(:title, :location)
+      params.require(:group).permit(:title, :location, :user_id, :user)
     end
 
     def catch_not_found(e)

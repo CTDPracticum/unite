@@ -2,11 +2,11 @@ class MembershipsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :catch_not_found
   before_action :set_membership, only: %i[ show edit update destroy ]
   skip_before_action :authorized, only: [:new, :create]
+  before_filter :authenticate_user!
 
   # GET /memberships or /memberships.json
   def index
     @memberships = Membership.all
-    render json: @memberships
   end
 
   # GET /memberships/1 or /memberships/1.json
@@ -23,13 +23,23 @@ class MembershipsController < ApplicationController
   end
 
   # POST /memberships or /memberships.json
+  # def create
+  #  @membership = Membership.new(membership_params)
+  #   if @membership.save
+  #     session[:membership_id] = @membership.id
+  #     redirect_to @membership
+  #  else
+  #     flash.now.alert = @membership.errors.full_messages.to_sentence
+  #     render :new
+  #   end
+  # end
   def create
-   @membership = Membership.new(membership_params)
+    @membership = current_user.memberships.build(:group_id => params[:group_id])
     if @membership.save
-      session[:membership_id] = @membership.id
+      flash.notice = "You have succesfully joined this group."
       redirect_to @membership
-   else
-      flash.now.alert = @membership.errors.full_messages.to_sentence
+    else
+      flash.error = "Unable to join."
       render :new
     end
   end
@@ -46,13 +56,21 @@ class MembershipsController < ApplicationController
   end
 
   # DELETE /memberships/1 or /memberships/1.json
+  # def destroy
+  #   @membership.destroy
+  #   respond_to do |format|
+  #     format.html { redirect_to memberships_url, notice: "Membership was successfully destroyed." }
+  #     format.json { head :no_content }
+  #   end
+  # end
+
   def destroy
+    @membership = current_user.memberships.find(params[:id])
     @membership.destroy
-    respond_to do |format|
-      format.html { redirect_to memberships_url, notice: "Membership was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    flash.notice = "Membership was successfully destroyed."
+      redirect_to memberships_path
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -62,7 +80,7 @@ class MembershipsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def membership_params
-      params.require(:membership).permit(:user, :group, :meetup)
+      params.require(:membership).permit(:user, :group, :meetup, :user_id, :group_id)
     end
 
     def catch_not_found(e)

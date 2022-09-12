@@ -6,7 +6,9 @@ Rails.application.routes.draw do
    get 'authorized', to: 'sessions#page_requires_login'
    get "logout", to: 'sessions#destroy', as: :logout
 
-   resources :groups
+   resources :groups do
+      get 'join', on: :member
+   end
    resources :meetups
    resources :sessions
    root to: 'users#new'
