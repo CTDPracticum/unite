@@ -42,6 +42,6 @@ ActiveRecord::Schema.define(version: 2022_08_28_200011) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "group_id"
-    t.text "bio"
   end
+
 end
