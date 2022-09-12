@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_11_220227) do
+ActiveRecord::Schema.define(version: 2022_08_28_200011) do
 
   create_table "groups", force: :cascade do |t|
     t.string "title"
@@ -30,6 +30,16 @@ ActiveRecord::Schema.define(version: 2022_08_11_220227) do
     t.integer "group_id"
   end
 
+  create_table "memberships", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "group_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["group_id"], name: "index_memberships_on_group_id"
+    t.index ["user_id", "group_id"], name: "index_memberships_on_user_id_and_group_id", unique: true
+    t.index ["user_id"], name: "index_memberships_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -39,4 +49,7 @@ ActiveRecord::Schema.define(version: 2022_08_11_220227) do
     t.integer "group_id"
     t.text "bio"
   end
+
+  add_foreign_key "memberships", "groups"
+  add_foreign_key "memberships", "users"
 end

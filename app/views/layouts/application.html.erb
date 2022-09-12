@@ -13,10 +13,8 @@
   </head>
 
   <body>
-      <header>
-          <% if current_page? %>
-            <%= render partial: "shared/navbar" %>
-          <% end %>
+    <%= render 'shared/navbar' unless @disable_nav %>
+    <header>
             
           <!-- jumbotron -->
             <div class="jumbotron jumbotron-fluid bg-warning text-white my-0 barcad text-center">
