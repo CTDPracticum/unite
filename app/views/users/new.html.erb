@@ -14,8 +14,10 @@
             <%= f.label :email%><br>
             <%= f.email_field :email%><br> 
             <%= f.label :password%><br>
-            <%= f.password_field :password%><br>
-            <%= f.submit %>
+            <%= f.password_field :password%> <br>
+            <div>
+            <%= f.submit "Sign up",  class:"btn-create" %> 
+            </div>
           <% end %>
         </div>
     </div>
