@@ -3,6 +3,13 @@
  Welcome page afer user signs in with log out button. 
 <%
 =end%>
+
+<% if notice %>
+    <p class="alert alert-success">
+      <%= notice %>
+    </p>
+<% end %>
+
 <h1>Welcome</h1>
 <% if logged_in? %>
     <h1><%= current_user.name %></h1>
