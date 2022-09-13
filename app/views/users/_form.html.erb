@@ -32,6 +32,15 @@
     <%= form.password_field :password_confirmation %>
   </div>
 
+  <div class="field">
+    <%= form.label :bio %> <br>
+    <%= form.text_area :bio %>
+  </div>
+
+  <div class="field">
+    <%= form.file_field :avatar %>
+  </div>
+
   <div class="actions">
     <%= form.submit " Update ", class:"btn-create" %>
   </div>
