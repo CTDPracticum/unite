@@ -41,6 +41,7 @@ group :development, :test do
   gem 'faker'
   gem 'rails-controller-testing'
   gem 'rexml'
+  gem 'high_voltage'
 end
 
 group :development do
