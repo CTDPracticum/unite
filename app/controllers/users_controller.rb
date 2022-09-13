@@ -63,6 +63,12 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
     end
 
+    def membership
+      if @user.id.present?
+        @membership = Membership.create(user_id: @user.id)
+      end
+    end
+
     # Only allow a list of trusted parameters through.
     def user_params
       params.require(:user).permit(:name, :email, :password, :password_confirmation, :bio, :avatar)
