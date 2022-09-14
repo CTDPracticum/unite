@@ -3,15 +3,12 @@
         <div id="group" class="col-4 text-center">
             <h1>New Group</h1>
 
-            <%= render 'form', group: @group, class: "btn btn-primary" %>
+            <%= render 'form', group: @group, class: "btn-primary" %>
         </div>
     </div>
 </div>
 
 
-<%
-=begin%>
- <%= link_to 'Back', groups_path %>  
-<%
-=end%>
 
+
+ <%= link_to 'Back', groups_path, class:"btn-back" %>  

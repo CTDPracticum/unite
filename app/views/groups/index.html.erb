@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<div class="container mb-4">
+<div class="container m-4">
   <h1 class="text-center font-weight-bold my-4">Groups</h1>
 
     <% @groups.each do |group| %>
@@ -15,7 +15,7 @@
     <% end %>
   <br>
 
-  <div class="row justify-content-center">
-    <%= link_to 'New Group', new_group_path, class: "btn btn-primary" %>
-  </div>
+   
+      <%= link_to 'New Group', new_group_path, class: "btn-create" %>
+    
 </div>
