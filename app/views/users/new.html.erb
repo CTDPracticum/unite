@@ -4,22 +4,34 @@
 <%
 =end%>
 
-<div class="container mx-auto">
-    <div class="row justify-content-around mt-5">
-        <div id="group" class="col-4 text-center">
-          <h1 id='home'>Sign Up</h1>
+<div class="container h-100">
+  <div class="card_login align-middle main-content text-center">
+    <div class="col-md-12 offset-md-3 align-middle text-center "> 
+      <div class="text-center mb-1 mt-1">
+        <%= image_tag "logo.png", alt: "people", style: "width: 100px;" %>
+      </div>  
+      <h1 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign Up</h1>
+        <div class="form-group">
           <%= form_for @user do |f|%>
-            <%= f.label :name%><br>
-            <%= f.text_field :name%><br>
-            <%= f.label :email%><br>
-            <%= f.email_field :email%><br> 
-            <%= f.label :password%><br>
-            <%= f.password_field :password%> <br>
-            <div>
-            <%= f.submit "Sign up",  class:"btn-create" %> 
+            <div class="form-group mb-4">
+              <%= f.label :name%>
+              <%= f.text_field :name, class: 'form-control form-control-lg' %>
+            </div>
+            <div class="form-group mb-4">
+              <%= f.label :email%>
+              <%= f.email_field :email, class: 'form-control form-control-lg' %>
+            </div>
+            <div class="form-group mb-4">
+              <%= f.label :password%>
+              <%= f.password_field :password, class: 'form-control form-control-lg' %>
+            </div>
+            <div class="pt-1 mb-4">
+              <%= f.submit "Create User", class:"btn btn-primary btn-lg btn-block" %>
             </div>
           <% end %>
+          <h4 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Already registered? <%= link_to "SIGN IN", login_path, class:"nav-link active" %></h4> 
         </div>
     </div>
+  </div>
 </div>
  
