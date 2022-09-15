@@ -27,11 +27,9 @@
     </div>
   </div>
 </div>
+<br>
 
-<%
-=begin%>
- 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>  
-<%
-=end%>
+<div>
+<%= link_to 'Edit', edit_user_path(@user), class:"btn-edit"%> |
+<%= link_to 'Back', users_path, class:"btn-back" %>  
+</div>

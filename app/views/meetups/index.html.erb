@@ -23,7 +23,7 @@
             <td><%= meetup.time %></td>
             <td> <%= link_to 'Show', meetup, class:"btn-show" %> </td>
             <td><div> <%= link_to ' Edit ', edit_meetup_path(meetup), class:"btn-edit" %> </div></td>
-            <td><div> <%= link_to 'Destroy', meetup, method: :delete, class:"btn-delete", data: { confirm: 'Are you sure?' } %> </div></td>
+            <td><div> <%= button_to 'Delete', meetup, method: :delete, class:"btn-delete", data: { confirm: 'Are you sure?' } %> </div></td>
           </tr>
         <% end %>
       </tbody>

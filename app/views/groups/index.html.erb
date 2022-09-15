@@ -19,7 +19,7 @@
             <td><%= group.location %></td>
             <td><%= link_to 'Show', group, class: "btn-show" %></td>
             <td><%= link_to 'Edit', edit_group_path(group), class: "btn-edit" %></td>
-            <td><%= link_to 'Destroy', group, class:"btn-delete", method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= button_to 'Delete', group, class:"btn-delete", method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
         <% end %>
       </tbody>
