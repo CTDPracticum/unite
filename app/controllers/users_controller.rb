@@ -25,23 +25,26 @@ class UsersController < ApplicationController
   # POST /users or /users.json
   def create
    @user = User.new(user_params)
+   @user.avatar.attach(user_params[:avatar])
     if @user.save
-      format.html {redirect_to @user, notice: "User was successfully created."}
-      format.json {render :show, status: :created, location: @user}
-    else
-      format.html {render :new, status: :unprocessable_entity}
-      format.json {render json: @user.errors, status: :unprocessable_entity}
+      session[:user_id] = @user.id
+      redirect_to @user
+   else
+      flash.now.alert = @user.errors.full_messages.to_sentence
+      render :new
     end
   end
 
   # PATCH/PUT /users/1 or /users/1.json
-  def update
+  def update 
+    # TO DO: Don't drop avatar
+    @user.avatar.attach(user_params[:avatar])
     if @user.update(user_params)
-      format.html {redirect_to @user, notice: "The user record was updated successfully."}
-      format.json {render json: @user.errors, status: :unprocessable_entity}
+      flash.notice = "The user record was updated successfully."
+      redirect_to users_path
     else
-      format.html {render :edit, status: :unprocessable_entity}
-      format.json {render json: @user.errors, status: :unprocessable_entity}
+      flash.now.alert = @user.errors.full_messages.to_sentence
+      render :edit
     end
   end
 
@@ -49,7 +52,7 @@ class UsersController < ApplicationController
   def destroy
     @user.destroy
     respond_to do |format|
-      format.html { redirect_to users_url, notice: "User was successfully destroyed." }
+      format.html { redirect_to users_url, notice: "This user was successfully destroyed." }
       format.json { head :no_content }
     end
   end
@@ -68,7 +71,7 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.require(:user).permit(:name, :email, :password, :password_confirmation, :group, :bio)
+      params.require(:user).permit(:name, :email, :password, :password_confirmation, :bio, :avatar)
     end
 
     def catch_not_found(e)
