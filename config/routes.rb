@@ -12,6 +12,7 @@ Rails.application.routes.draw do
    end
    resources :meetups
    resources :sessions
+   resources :memberships
 
    root to: 'users#new'
 end
