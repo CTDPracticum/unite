@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   # GET /users or /users.json
   def index
     @users = User.all
-    render json: @users
+    
   end
 
   # GET /users/1 or /users/1.json
@@ -25,6 +25,7 @@ class UsersController < ApplicationController
   # POST /users or /users.json
   def create
    @user = User.new(user_params)
+   @user.avatar.attach(user_params[:avatar])
     if @user.save
       session[:user_id] = @user.id
       redirect_to @user
@@ -35,21 +36,23 @@ class UsersController < ApplicationController
   end
 
   # PATCH/PUT /users/1 or /users/1.json
-  def update
-      if @user.update(user_params)
-        flash.notice = "The user record was updated successfully."
-        redirect_to users_path
-      else
-        flash.now.alert = @user.errors.full_messages.to_sentence
-        render :edit
-      end
+  def update 
+    # TO DO: Don't drop avatar
+    @user.avatar.attach(user_params[:avatar])
+    if @user.update(user_params)
+      flash.notice = "The user record was updated successfully."
+      redirect_to users_path
+    else
+      flash.now.alert = @user.errors.full_messages.to_sentence
+      render :edit
+    end
   end
 
   # DELETE /users/1 or /users/1.json
   def destroy
     @user.destroy
     respond_to do |format|
-      format.html { redirect_to users_url, notice: "User was successfully destroyed." }
+      format.html { redirect_to users_url, notice: "This user was successfully destroyed." }
       format.json { head :no_content }
     end
   end
@@ -60,9 +63,15 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
     end
 
+    def membership
+      if @user.id.present?
+        @membership = Membership.create(user_id: @user.id)
+      end
+    end
+
     # Only allow a list of trusted parameters through.
     def user_params
-      params.require(:user).permit(:name, :email, :password, :password_confirmation)
+      params.require(:user).permit(:name, :email, :password, :password_confirmation, :bio, :avatar)
     end
 
     def catch_not_found(e)

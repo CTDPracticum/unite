@@ -3,6 +3,7 @@ class User < ApplicationRecord
   has_many :groups
   has_many :meetups
   has_many :memberships
+  has_one_attached :avatar
   
   validates :name, presence: true
   validates :email, uniqueness: true

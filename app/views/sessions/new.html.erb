@@ -3,18 +3,33 @@
  Login page: localhost/login 
 <%
 =end%>
-
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <%= form_for(:session, url: login_path) do |f| %>
-
-      <%= f.label :email %>
-      <%= f.email_field :email, class: 'form-control' %>
-
-      <%= f.label :password %>
-      <%= f.password_field :password, class: 'form-control' %>
-<br>
-      <%= f.submit "Login", class: "btn btn-primary" %>
-    <% end %>
+<% if alert %>
+  <p class="alert alert-danger">
+    <%= alert %>
+  </p>
+<% end %>
+<div class="container h-100">
+  <div class="card_login align-middle main-content">
+    <div class="col-lg-6 col-md-5 d-none d-md-block company_info">
+      <%= image_tag "cooperation.jpg", alt: "people", class: "img-responsive", :style => "brightness:0.5" %>
+    </div>
+    <div class="col-md-6 login_form">
+          <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">LOG IN</h3>
+            <div class="form-group">
+              <%= form_for(:session, url: login_path) do |f| %>
+                <div class="form-group mb-4">
+                  <%= f.label :email %>
+                  <%= f.email_field :email, class: 'form-control form-control-lg' %>
+                </div>
+                <div class="form-group mb-4">
+                  <%= f.label :password %>
+                  <%= f.password_field :password, class: 'form-control form-control-lg' %>
+                </div>
+                <div class="pt-1 mb-4">
+                  <%= f.submit "Login", class: "btn btn-primary btn-lg btn-block" %>
+                </div>
+              <% end %>
+            </div> 
+    </div>
   </div>
 </div>
