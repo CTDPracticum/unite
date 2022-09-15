@@ -3,6 +3,12 @@
     <div class="card-body">
       <p id="notice"><%= notice %></p>
 
+      <% if @user.avatar.attached? %>
+        <%= image_tag rails_storage_redirect_path(@user.avatar) %>
+      <% else %> 
+        <%= image_tag 'avatar-head.jpg', height: 100, width: 100, class: "rounded-circle" %>
+      <% end %> 
+
       <p>
         <strong>Name:</strong>
         <%= @user.name %>

@@ -13,12 +13,8 @@
   </head>
 
   <body>
-  
-      <header>
-          <% if current_page? %>
-            <%= render partial: "shared/navbar" %>
-          <% end %>
-<<<<<<< HEAD
+    <%= render 'shared/navbar' unless @disable_nav %>
+    <header>
             
           <!-- jumbotron -->
             <div class="jumbotron jumbotron-fluid bg-warning text-white my-0 barcad text-center">
@@ -69,7 +65,8 @@
 >>>>>>> fd2b996bb38bdf4cb5d3288f0929d874dab09701
         <!-- footer -->
           <footer class="footer bg-warning border-top border-dark pt-2 mb-0">
-            <p>&copy; 2022 Unite || CTD Final </p>
+            <p>&copy; 2022 Unite || CTD Final Project</p>
+            <%= link_to 'About', page_path('about') %>
           </footer>
         <!-- footer -->
   </body>
