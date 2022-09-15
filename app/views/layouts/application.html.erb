@@ -13,60 +13,26 @@
   </head>
 
   <body>
-    <%= render 'shared/navbar' unless @disable_nav %>
-    <header>
-            
-          <!-- jumbotron -->
-            <div class="jumbotron jumbotron-fluid bg-warning text-white my-0 barcad text-center">
-              <div class="container text-sm-center">
-                <h1 class="display-1 lead text-center">Unite: Where Entreprenuers Find Business Partners</h1>
-              </div>
-            </div>
-          <!--jumbotron -->
-      </header>
-        <div class="container"> 
-          <div class = "row">
-              <%= yield %>
-              <br>
-          </div>
+    <div id="page-container">
+      <div id="content-wrap">
+        <%= render 'shared/navbar' unless @disable_nav %>
+          <header>
+                <!-- jumbotron -->
+                  <div class="jumbotron jumbotron-fluid bg-warning text-white my-0 barcad text-center">
+                    <div class="container text-sm-center">
+                      <h1 class="display-1 lead text-center">Unite: Where Entreprenuers Find Business Partners</h1>
+                    </div>
+                  </div>
+                <!--jumbotron -->
+            </header>
         </div>
-        <!-- jumbotron -->
-        <div class="jumbotron jumbotron-fluid bg-warning text-white my-0 barcad text-center">
-          <div class="container text-sm-center">
-            <h1 class="display-1 lead text-center">Unite: Where Entrepreneurs Find Business Partners</h1>
-          </div>
-        </div>
-
-          <% if !flash[:alert].nil? %>
-            <p class="my_alert"><%= flash[:alert] %></p>
-          <% end %>
-          
-        <!-- navbar -->
-          <ul class="nav justify-content-end">
-            <li class="nav-item">
-              <a class="nav-link" href="#">Groups</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Meetups</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Logout</a>
-            </li>
-          </ul>
-
-      </header>
-        <div class="container"> 
-          <div class = "row">
-              <%= yield %>
-              <br>
-          </div>
-        </div>
->>>>>>> fd2b996bb38bdf4cb5d3288f0929d874dab09701
-        <!-- footer -->
-          <footer class="footer bg-warning border-top border-dark pt-2 mb-0">
-            <p>&copy; 2022 Unite || CTD Final Project</p>
-            <%= link_to 'About', page_path('about') %>
-          </footer>
-        <!-- footer -->
+          <%= yield %>
+          <!-- footer -->
+            <footer class="footer bg-warning border-top border-dark pt-2 mb-0">
+              <p>&copy; 2022 Unite || CTD Final Project</p>
+              <%= link_to 'About', page_path('about') %>
+            </footer>
+          <!-- footer -->
+      </div>
   </body>
 </html>
