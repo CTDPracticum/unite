@@ -128,6 +128,13 @@ input, select{
     border: thin wheat solid;
     
 }
+.login_form{
+    margin-left: 10px;
+}
+
+.login_form input{
+    min-width: 0;
+}
 
 input[type=text]:focus, select:focus{
     border: thin whitesmoke solid;
