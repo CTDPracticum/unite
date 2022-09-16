@@ -8,6 +8,7 @@
         <div class="card-body">
           <h5 class="card-title text-uppercase font-weight-bold"><%= group.title %></h5>
           <h6 class="card-subtitle mb-2 text-muted"><%= group.location %></h6>
+          <p class="card-text"><%= group.description %></p>
           <%= link_to 'Show', group %> | <%= link_to 'Edit', edit_group_path(group) %> | <%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %>
         </div>
       </div>
