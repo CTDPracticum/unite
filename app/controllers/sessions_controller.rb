@@ -8,10 +8,10 @@ class SessionsController < ApplicationController
   def login
   end
 
-  # def welcome
-  #   byebug
-  #   @user=User.first
-  # end 
+  def welcome
+    @user=current_user
+    @meetups=@user.meetups.all
+  end 
 
   def create
     @user = User.find_by(email: params[:session][:email])
@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id
       # log_in @user
       flash[:notice]="Logged in successfully."
-      redirect_to '/welcome', id: User.find_by_id(session[:user_id])
+      redirect_to '/welcome'
     else
       flash.now[:alert] = 'Invalid email/password combination'
       render 'new'

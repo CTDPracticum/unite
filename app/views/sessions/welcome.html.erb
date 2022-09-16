@@ -12,11 +12,16 @@
 
 <h1>Welcome, </h1>
 <% if logged_in? %>
-    <h1><%= current_user.name %></h1>
 
-   <h4> Meetup <h4> 
-   <% @user.meetups.each do |meetup|%>
-      <%= link_to meetup.title, meetup_path(meetup) %>
-      
-    <% end %>
+    <h1><%= current_user.name %></h1>
 <%end%>
+
+<div class="col-8">
+  
+    <% @meetups.each do |meetup|%>
+      <tr>
+        <td><%= link_to meetup.title, meetup %></td>
+      </tr>
+    <% end %>
+  
+</div>
