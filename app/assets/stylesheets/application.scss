@@ -116,3 +116,20 @@ h1 {
     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.4);
     margin: 5em auto;
 }
+
+label{
+    display: block;
+}
+
+input, select{
+    padding: 5px;
+    min-width: 40vw;
+    border-radius: 5px;
+    border: thin wheat solid;
+    
+}
+
+input[type=text]:focus, select:focus{
+    border: thin whitesmoke solid;
+    background-color: rgba(5,189,189,0.2);
+}
