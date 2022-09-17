@@ -24,6 +24,11 @@
     </div>
 
     <div class="field">
+      <%= form.label :description %>
+      <%= form.text_area :description %>
+    </div>
+
+    <div class="field">
       <%= form.label :user %>
       <%= form.collection_select :user_id, User.all, :id, :name, include_blank: true %>
     </div>

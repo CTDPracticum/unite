@@ -2,7 +2,7 @@
 
 <div class="container-fluid m-4">
   <h1 class="text-center font-weight-bold my-4">Groups</h1>
-
+  
     <% @groups.each do |group| %>
       <div class="card" style="width: 18rem; border: thin black solid; padding: 10px;">
         <div class="card-body">
@@ -20,6 +20,8 @@
       <br>
     <% end %>
       
+  <br>
+   
       <%= link_to 'New Group', new_group_path, class: "btn-create" %>
     
     <div>

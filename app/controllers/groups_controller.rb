@@ -60,7 +60,7 @@ class GroupsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def group_params
-      params.require(:group).permit(:title, :location)
+      params.require(:group).permit(:title, :location, :description)
     end
 
     def catch_not_found(e)
