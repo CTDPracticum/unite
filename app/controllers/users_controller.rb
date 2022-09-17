@@ -6,7 +6,6 @@ class UsersController < ApplicationController
   # GET /users or /users.json
   def index
     @users = User.all
-    
   end
 
   # GET /users/1 or /users/1.json
@@ -29,7 +28,7 @@ class UsersController < ApplicationController
     if @user.save
       session[:user_id] = @user.id
       redirect_to @user
-   else
+    else
       flash.now.alert = @user.errors.full_messages.to_sentence
       render :new
     end

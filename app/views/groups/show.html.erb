@@ -1,3 +1,4 @@
+<div class "container"
 <div class="col-md-4">
   <div class="card mt-2 mb-2 rounded">
     <div class="card-body">
@@ -14,10 +15,15 @@
         <%= @group.location %>
       </p>
 
-      <%= link_to 'Edit', edit_group_path(@group) %> |
-      <%= link_to 'Back', groups_path %>
-      <%= link_to "Join this group", join_group_path(@group) %>
+      <p>
+        <strong>Description:</strong>
+        <%= @group.description %>
+      </p>
+
+      <%= link_to 'Edit', edit_group_path(@group), class:"btn-edit" %> 
+      <%= link_to 'Back', groups_path, class:"btn-back" %>
 
     </div>
   </div>
+</div>
 </div>
