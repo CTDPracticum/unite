@@ -16,12 +16,11 @@
     <h1><%= current_user.name %></h1>
 <%end%>
 
-<div class="col-8">
-  
+<table>
     <% @meetups.each do |meetup|%>
       <tr>
         <td><%= link_to meetup.title, meetup %></td>
       </tr>
     <% end %>
   
-</div>
+</table>
