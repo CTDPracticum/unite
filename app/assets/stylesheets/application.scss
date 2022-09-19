@@ -72,20 +72,20 @@ p {
 }
 
 #content-wrap {
-    padding-bottom: 0;
+    padding-bottom: 3.5rem;
 }
 
 .footer {
     bottom: 0;
     width: 100%;
+    position: fixed;
     align-items: center;
     text-align: center;    
-    position: absolute;
     background-color: teal;
     color: white;
     display: flex;
     justify-content: space-between;
-    height: 5.5rem;  /* Footer height */
+    height: 3.5rem;  /* Footer height */
 }
 
 .footer a {

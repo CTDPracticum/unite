@@ -57,7 +57,7 @@ class GroupsController < ApplicationController
       end
     end
   end
-
+ 
   # DELETE /groups/1 or /groups/1.json
   def destroy
     @group.destroy
@@ -75,7 +75,7 @@ class GroupsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def group_params
-      params.require(:group).permit(:title, :location, :description, :user, :user_id)
+      params.require(:group).permit(:title, :location, :description, :user, :group_id)
     end
 
     def catch_not_found(e)
