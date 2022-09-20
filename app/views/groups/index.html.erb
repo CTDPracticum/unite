@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<div class="container m-4">
+<div class="container-fluid m-4">
   <h1 class="text-center font-weight-bold my-4">Groups</h1>
   
     <% @groups.each do |group| %>
@@ -8,14 +8,19 @@
         <div class="card-body">
           <h5 class="card-title text-uppercase font-weight-bold"><%= group.title %></h5>
           <h6 class="card-subtitle mb-2 text-muted"><%= group.location %></h6>
-          <p class="card-text"><%= group.description %></p>
-          <%= link_to 'Show', group %> | <%= link_to 'Edit', edit_group_path(group) %> | <%= link_to 'Destroy', group, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <br>
+          <div class="text-left">
+            <%= link_to 'Show', group, class:"btn-show" %>  <%= link_to ' Edit ', edit_group_path(group), class:"btn-edit" %> 
+          </div>
+          <div class="text-right">
+            <%= button_to 'Delete', group, method: :delete, class:"btn-delete btn", data: { confirm: 'Are you sure?' } %>
+          </div>
         </div>
       </div>
       <br>
     <% end %>
+      
   <br>
    
       <%= link_to 'New Group', new_group_path, class: "btn-create" %>
-    
 </div>

@@ -76,7 +76,6 @@ ActiveRecord::Schema.define(version: 2022_09_16_213820) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "group_id"
-    t.text "bio"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
