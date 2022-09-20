@@ -1,29 +1,28 @@
 <div class "container"
-<div class="col-md-4">
-  <div class="card mt-2 mb-2 rounded">
-    <div class="card-body">
-    
-      <p id="notice"><%= notice %></p>
+  <div class="col-md-4">
+    <div class="card mt-2 mb-2 rounded">
+      <div class="card-body">
+      
+        <p id="notice"><%= notice %></p>
 
-      <p>
-        <strong>Title:</strong>
-        <%= @group.title %>
-      </p>
+        <p>
+          <strong>Title:</strong>
+          <%= @group.title %>
+        </p>
 
-      <p>
-        <strong>Location:</strong>
-        <%= @group.location %>
-      </p>
+        <p>
+          <strong>Location:</strong>
+          <%= @group.location %>
+        </p>
 
-      <p>
-        <strong>Description:</strong>
-        <%= @group.description %>
-      </p>
+        <p>
+          <strong>Description:</strong>
+          <%= @group.description %>
+        </p>
 
-      <%= link_to 'Edit', edit_group_path(@group), class:"btn-edit" %> 
-      <%= link_to 'Back', groups_path, class:"btn-back" %>
-
+        <%= link_to 'Edit', edit_group_path(@group), class:"btn-edit" %> 
+        <%= link_to 'Back', groups_path, class:"btn-back" %>
+      </div>
     </div>
   </div>
-</div>
 </div>

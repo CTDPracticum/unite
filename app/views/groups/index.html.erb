@@ -11,7 +11,7 @@
               <br>
               <p class="card-text"><%= group.description %></p>
               <div class="text-left">
-                <%= link_to 'Show', group, class:"btn-show" %>  <%= link_to ' Edit ', edit_group_path(group), class:"btn-edit" %> 
+                <%= link_to 'Show', group, class:"btn-show" %>  <%= link_to ' Edit ', edit_group_path(group), class:"btn-edit" %> <%= link_to 'Join this group', join_group_path(group), class:"btn-join" %>
               </div>
               <div class="text-right">
                 <%= button_to 'Delete', group, method: :delete, class:"btn-delete btn", data: { confirm: 'Are you sure?' } %>

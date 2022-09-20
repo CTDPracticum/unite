@@ -48,9 +48,8 @@ class GroupsController < ApplicationController
   # GET /groups or /groups.json
   def join
     @group = Group.find(params[:id])
-    @user = current_user
-    @user.groups << @group
-    respond_to do |f|
+    @membership = @group.memberships.build(:user_id => current_user.id)
+    respond_to do |format|
       if @membership.save
         format.html { redirect_to(@group, :notice => 'You have joined this group.') }
         format.xml  { head :ok }
