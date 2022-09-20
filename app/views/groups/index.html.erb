@@ -1,25 +1,26 @@
 <p id="notice"><%= notice %></p>
 
-<div class="container-fluid m-4">
+<div class="container m-4">
   <h1 class="text-center font-weight-bold my-4">Groups</h1>
-  
-    <% @groups.each do |group| %>
-      <div class="card" style="width: 18rem; border: thin black solid; padding: 10px;">
-        <div class="card-body">
-          <h5 class="card-title text-uppercase font-weight-bold"><%= group.title %></h5>
-          <h6 class="card-subtitle mb-2 text-muted"><%= group.location %></h6>
+    <div class="card-deck">
+        <% @groups.each do |group| %>
+          <div id="groups" class="card">
+            <div class="card-body">
+              <h5 class="card-title text-uppercase font-weight-bold"><%= group.title %></h5>
+              <h6 class="card-subtitle mb-2 text-muted"><%= group.location %></h6>
+              <br>
+              <p class="card-text"><%= group.description %></p>
+              <div class="text-left">
+                <%= link_to 'Show', group, class:"btn-show" %>  <%= link_to ' Edit ', edit_group_path(group), class:"btn-edit" %> 
+              </div>
+              <div class="text-right">
+                <%= button_to 'Delete', group, method: :delete, class:"btn-delete btn", data: { confirm: 'Are you sure?' } %>
+              </div>
+            </div>
+          </div>
           <br>
-          <div class="text-left">
-            <%= link_to 'Show', group, class:"btn-show" %>  <%= link_to ' Edit ', edit_group_path(group), class:"btn-edit" %> 
-          </div>
-          <div class="text-right">
-            <%= button_to 'Delete', group, method: :delete, class:"btn-delete btn", data: { confirm: 'Are you sure?' } %>
-          </div>
-        </div>
-      </div>
-      <br>
-    <% end %>
-      
+        <% end %>
+    </div>
   <br>
    
       <%= link_to 'New Group', new_group_path, class: "btn-create" %>
