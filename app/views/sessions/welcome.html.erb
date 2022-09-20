@@ -13,8 +13,4 @@
 <h1>Welcome, </h1>
 <% if logged_in? %>
   <h1><%= current_user.name %></h1>
-    <h2>Groups</h2>
-    <% @groups.each do |group| %>
-       <%= group.title %>
-     <% end %>
-<%end%>
+<% end %>
