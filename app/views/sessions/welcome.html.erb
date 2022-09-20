@@ -1,6 +1,6 @@
 <%
 =begin%>
- Welcome page afer user signs in with log out button. 
+ Welcome page afer user signs in with log in/sign up button. 
 <%
 =end%>
 
@@ -13,4 +13,8 @@
 <h1>Welcome, </h1>
 <% if logged_in? %>
   <h1><%= current_user.name %></h1>
+    <h2>Groups</h2>
+    <% @groups.each do |group| %>
+       <%= group.title %>
+     <% end %>
 <%end%>

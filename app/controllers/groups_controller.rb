@@ -9,6 +9,8 @@ class GroupsController < ApplicationController
 
   # GET /groups/1 or /groups/1.json
   def show
+    @group = Group.find(params[:id])
+    @members = @group.users
   end
 
   # GET /groups/new
@@ -46,8 +48,9 @@ class GroupsController < ApplicationController
   # GET /groups or /groups.json
   def join
     @group = Group.find(params[:id])
-    @membership = @group.memberships.build(:user_id => current_user.id)
-    respond_to do |format|
+    @user = current_user
+    @user.groups << @group
+    respond_to do |f|
       if @membership.save
         format.html { redirect_to(@group, :notice => 'You have joined this group.') }
         format.xml  { head :ok }
@@ -57,7 +60,7 @@ class GroupsController < ApplicationController
       end
     end
   end
- 
+  
   # DELETE /groups/1 or /groups/1.json
   def destroy
     @group.destroy

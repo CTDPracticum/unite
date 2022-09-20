@@ -37,10 +37,10 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1 or /users/1.json
   def update 
     # TO DO: Don't drop avatar
-    Current.user.avatar.attach(params.require(:avatar))
+    @user.avatar.attach(user_params[:avatar])
     if @user.update(user_params)
       flash.notice = "The user record was updated successfully."
-      redirect_to Current.user
+      redirect_to @user
     else
       flash.now.alert = @user.errors.full_messages.to_sentence
       render :edit

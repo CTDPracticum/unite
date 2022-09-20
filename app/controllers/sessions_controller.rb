@@ -21,6 +21,11 @@ class SessionsController < ApplicationController
     end
   end
 
+  def welcome
+    user = current_user
+    @groups = user.groups
+  end
+    
   def page_requires_login
   end
 
